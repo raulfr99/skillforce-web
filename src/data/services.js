@@ -236,17 +236,17 @@ export const riga = {
 }
 
 export const clients = [
-  'Carl’s Jr',
-  'CG Consultores',
-  'Be People',
-  'EXUS',
-  'Magnitalent',
-  'Maycky BTL',
-  'Sanatorio Toluca',
-  'Sports Clinic',
-  'Sportway',
-  'Zquadra',
-  'Biatatus',
+  { name: "Carl's Jr",        abbr: 'CJ', sector: 'Restaurantes' },
+  { name: 'CG Consultores',   abbr: 'CG', sector: 'Consultoría' },
+  { name: 'Be People',        abbr: 'BP', sector: 'Recursos Humanos' },
+  { name: 'EXUS',             abbr: 'EX', sector: 'Tecnología' },
+  { name: 'Magnitalent',      abbr: 'MG', sector: 'Talento' },
+  { name: 'Maycky BTL',       abbr: 'MB', sector: 'Marketing' },
+  { name: 'Sanatorio Toluca', abbr: 'ST', sector: 'Salud' },
+  { name: 'Sports Clinic',    abbr: 'SC', sector: 'Salud' },
+  { name: 'Sportway',         abbr: 'SW', sector: 'Deporte' },
+  { name: 'Zquadra',          abbr: 'ZQ', sector: 'Consultoría' },
+  { name: 'Biatatus',         abbr: 'BT', sector: 'Tecnología' },
 ]
 
 export const company = {
