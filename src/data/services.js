@@ -153,46 +153,63 @@ export const services = [
   },
 ]
 
+// Bento layout: 4 cols × 3 rows en desktop. Cada tile declara su `span` y `variant`
+// ('image' = foto con overlay | 'solid' = bloque morado liso con texto grande).
 export const suite = [
   {
     name: 'Talento',
     to: '/servicios/talento',
+    variant: 'image',
+    span: 'md:col-span-2 md:row-span-1',
+    tagline: 'Identificación y evaluación de candidatos',
     image:
       'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80',
   },
   {
     name: 'Administración de Capital Humano',
     to: '/servicios/capital-humano',
-    image:
-      'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=80',
+    variant: 'solid',
+    span: 'md:col-span-2 md:row-span-1',
+    tagline: '25,000 nóminas al mes · 3,000 empleados en 3 min',
   },
   {
     name: 'Tesorería',
     to: '/servicios/tesoreria',
-    image:
-      'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80',
+    variant: 'solid',
+    span: 'md:col-span-1 md:row-span-1',
+    tagline: 'Timbrado ilimitado',
   },
   {
     name: 'Bolsa de trabajo',
     to: '/servicios/talento',
+    variant: 'image',
+    span: 'md:col-span-2 md:row-span-1',
+    tagline: 'Expediente digital RIGA del candidato',
     image:
       'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=900&q=80',
   },
   {
     name: 'Procesos Operativos',
     to: '/servicios/servicios-complementarios',
+    variant: 'image',
+    span: 'md:col-span-1 md:row-span-1',
+    tagline: 'Flujos y cumplimiento',
     image:
       'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80',
   },
   {
     name: 'Servicios complementarios',
     to: '/servicios/servicios-complementarios',
-    image:
-      'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=900&q=80',
+    variant: 'solid',
+    span: 'md:col-span-2 md:row-span-1',
+    tagline: 'Capacitación · NOM 035 · Comedor · Viáticos',
   },
   {
     name: 'Facturación',
     to: '/servicios/tesoreria',
+    variant: 'image',
+    span: 'md:col-span-2 md:row-span-1',
+    tagline: 'CFDI, pagos y control de cobranza',
     image:
       'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80',
   },

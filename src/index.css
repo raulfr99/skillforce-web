@@ -17,7 +17,7 @@
   --color-brand-900: #4c1f58;
   --color-brand-950: #2e0a37;
 
-  /* Cian del logotipo — color secundario */
+  /* Cian del logotipo — color secundario (reservado para acentos pequeños) */
   --color-accent-50: #f0f9fd;
   --color-accent-100: #e0f2fb;
   --color-accent-200: #bce4f6;
@@ -29,6 +29,27 @@
   --color-accent-800: #175d82;
   --color-accent-900: #184e6c;
   --color-accent-950: #103248;
+
+  /* Ink — casi-negro con matiz morado para fondos oscuros ricos */
+  --color-ink-50:  #ecebf1;
+  --color-ink-100: #d4d2de;
+  --color-ink-200: #a9a5bd;
+  --color-ink-300: #7f7898;
+  --color-ink-400: #574f73;
+  --color-ink-500: #3d365a;
+  --color-ink-600: #322a4e;
+  --color-ink-700: #221d3a;
+  --color-ink-800: #141126;
+  --color-ink-900: #0a0817;
+  --color-ink-950: #05030e;
+
+  /* Sand — neutros cálidos para fondos claros con temperatura */
+  --color-sand-50:  #faf7f2;
+  --color-sand-100: #f2ece0;
+  --color-sand-200: #e5dcc9;
+  --color-sand-300: #d1c3a7;
+  --color-sand-400: #b6a380;
+  --color-sand-500: #988260;
 }
 
 html {

@@ -2,7 +2,16 @@
   "permissions": {
     "allow": [
       "Bash(npm run *)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(mkdir -p C:/Users/raulf/Desktop/dev/skillforce-web/.claude/skills)",
+      "Bash(cp -r C:/Users/raulf/Desktop/dev/skillforce-web/.agents/skills/frontend-design C:/Users/raulf/Desktop/dev/skillforce-web/.claude/skills/)",
+      "Bash(grep -o \"md\\\\\\\\\\\\\\\\:col-span-2\\\\|dark\\\\\\\\\\\\\\\\:bg-ink-900\\\\|bg-brand-700\" dist/assets/index-DVf1Dmdc.css)",
+      "Bash(grep -oE '\\(md\\\\\\\\:col-span-[0-9]|dark\\\\\\\\:bg-ink-[0-9]+|dark\\\\\\\\:bg-sand|md\\\\\\\\:row-span\\)' dist/assets/index-DVf1Dmdc.css)",
+      "Bash(grep -o '[a-z\\\\\\\\:-]*col-span-2' dist/assets/index-DVf1Dmdc.css)",
+      "Bash(grep -o 'dark\\\\\\\\:bg-[a-z0-9-]*' dist/assets/index-DVf1Dmdc.css)",
+      "Bash(grep *)",
+      "Bash(awk 'BEGIN{RS=\",\"} /dark/' dist/assets/index-DVf1Dmdc.css)",
+      "Bash(awk '{for\\(i=1;i<=NF;i++\\) if\\($i ~ /dark/\\) print $i}')"
     ]
   }
 }
