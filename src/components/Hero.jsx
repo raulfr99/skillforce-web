@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { company } from '../data/services.js'
-import heroVideo from '../videos/skillforceVideo.mp4'
+import heroVideo from '../videos/skillforceHero.mp4'
+
+const FULL_VIDEO_EMBED_URL =
+  'https://drive.google.com/file/d/1-XIIQznF1zIgOvJIy4JDq8QK97C0MwDj/preview'
 
 export default function Hero() {
   const [open, setOpen] = useState(false)
@@ -105,12 +108,13 @@ export default function Hero() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <video
-            src={heroVideo}
-            controls
-            autoPlay
+          <iframe
+            src={FULL_VIDEO_EMBED_URL}
+            title="Video SkillForce"
+            allow="autoplay; fullscreen"
+            allowFullScreen
             onClick={(e) => e.stopPropagation()}
-            className="max-h-[90vh] w-full max-w-6xl rounded-xl shadow-2xl shadow-black/60"
+            className="aspect-video max-h-[90vh] w-full max-w-6xl rounded-xl shadow-2xl shadow-black/60"
           />
         </div>
       )}
