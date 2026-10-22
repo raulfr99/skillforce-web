@@ -5,43 +5,57 @@
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
 
-  --color-brand-50: #faf5fc;
-  --color-brand-100: #f3e6f8;
-  --color-brand-200: #e6ccf0;
-  --color-brand-300: #d3a5e3;
-  --color-brand-400: #b972d0;
-  --color-brand-500: #9d47b8;
-  --color-brand-600: #83309c;
-  --color-brand-700: #6d2681;
-  --color-brand-800: #5a216a;
-  --color-brand-900: #4c1f58;
-  --color-brand-950: #2e0a37;
+  /* Brand — azul navy del logotipo (color principal) */
+  --color-brand-50:  #eef4fc;
+  --color-brand-100: #d6e5f7;
+  --color-brand-200: #adc9ef;
+  --color-brand-300: #78a7e2;
+  --color-brand-400: #4583d1;
+  --color-brand-500: #2563be;
+  --color-brand-600: #1b4ea0;
+  --color-brand-700: #163f82;
+  --color-brand-800: #14356b;
+  --color-brand-900: #122b54;
+  --color-brand-950: #0a1b38;
 
-  /* Cian del logotipo — color secundario (reservado para acentos pequeños) */
-  --color-accent-50: #f0f9fd;
-  --color-accent-100: #e0f2fb;
-  --color-accent-200: #bce4f6;
-  --color-accent-300: #84cfee;
-  --color-accent-400: #45b5e5;
-  --color-accent-500: #29abe2;
-  --color-accent-600: #1a8ac2;
-  --color-accent-700: #176f9d;
-  --color-accent-800: #175d82;
-  --color-accent-900: #184e6c;
-  --color-accent-950: #103248;
+  /* Accent — cian brillante del logotipo (highlights y degradados) */
+  --color-accent-50:  #ebfaff;
+  --color-accent-100: #d0f1fd;
+  --color-accent-200: #a4e3fa;
+  --color-accent-300: #6ed0f3;
+  --color-accent-400: #3dbce9;
+  --color-accent-500: #22a7d8;
+  --color-accent-600: #1687b8;
+  --color-accent-700: #166d94;
+  --color-accent-800: #185a78;
+  --color-accent-900: #184b65;
+  --color-accent-950: #0d3045;
 
-  /* Ink — casi-negro con matiz morado para fondos oscuros ricos */
-  --color-ink-50:  #ecebf1;
-  --color-ink-100: #d4d2de;
-  --color-ink-200: #a9a5bd;
-  --color-ink-300: #7f7898;
-  --color-ink-400: #574f73;
-  --color-ink-500: #3d365a;
-  --color-ink-600: #322a4e;
-  --color-ink-700: #221d3a;
-  --color-ink-800: #141126;
-  --color-ink-900: #0a0817;
-  --color-ink-950: #05030e;
+  /* Plum — morado del logotipo, SOLO para detalles pequeños */
+  --color-plum-50:  #f8f4fb;
+  --color-plum-100: #f0e6f6;
+  --color-plum-200: #e0ccec;
+  --color-plum-300: #c8a5dc;
+  --color-plum-400: #ac78c6;
+  --color-plum-500: #8c4caf;
+  --color-plum-600: #73348f;
+  --color-plum-700: #5e2b75;
+  --color-plum-800: #4d2560;
+  --color-plum-900: #3f1f4e;
+  --color-plum-950: #26112f;
+
+  /* Ink — casi-negro azulado para fondos oscuros ricos */
+  --color-ink-50:  #ebeef5;
+  --color-ink-100: #d1d7e5;
+  --color-ink-200: #a2acc5;
+  --color-ink-300: #7482a4;
+  --color-ink-400: #4d5a7c;
+  --color-ink-500: #35406a;
+  --color-ink-600: #2a3457;
+  --color-ink-700: #1d2644;
+  --color-ink-800: #10172e;
+  --color-ink-900: #070c1c;
+  --color-ink-950: #03060f;
 
   /* Sand — neutros cálidos para fondos claros con temperatura */
   --color-sand-50:  #faf7f2;
@@ -159,5 +173,5 @@ body {
 
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #6d2681; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #9d47b8; }
+::-webkit-scrollbar-thumb { background: #163f82; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #22a7d8; }

@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="flex items-center gap-2.5">
             <img src={logoBlanco} alt="" className="h-11 w-auto" />
             <span className="text-2xl font-bold">
-              Skill<span className="font-light text-brand-300">Force</span>
+              Skill<span className="font-light text-plum-300">Force</span>
             </span>
           </div>
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/60">

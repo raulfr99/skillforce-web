@@ -37,7 +37,7 @@ export default function Navbar() {
           <img src={logoColor} alt="" className="h-10 w-auto dark:hidden" />
           <img src={logoBlanco} alt="" className="hidden h-10 w-auto dark:block" />
           <span className="text-xl font-bold tracking-tight text-brand-800 dark:text-white">
-            Skill<span className="font-light text-accent-600 dark:text-brand-300">Force</span>
+            Skill<span className="font-light text-plum-600 dark:text-plum-300">Force</span>
           </span>
         </Link>
 
