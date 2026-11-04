@@ -6,7 +6,7 @@ const navLinks = [
   { label: 'Inicio',     to: '/#inicio' },
   { label: 'Beneficios', to: '/#beneficios' },
   { label: 'Suite',      to: '/#suit' },
-  { label: 'RIGA',       to: '/#riga' },
+  { label: 'Dataia',     to: '/#dataia' },
   { label: 'Clientes',   to: '/#clientes' },
 ]
 

@@ -11,7 +11,16 @@
       "Bash(grep -o 'dark\\\\\\\\:bg-[a-z0-9-]*' dist/assets/index-DVf1Dmdc.css)",
       "Bash(grep *)",
       "Bash(awk 'BEGIN{RS=\",\"} /dark/' dist/assets/index-DVf1Dmdc.css)",
-      "Bash(awk '{for\\(i=1;i<=NF;i++\\) if\\($i ~ /dark/\\) print $i}')"
+      "Bash(awk '{for\\(i=1;i<=NF;i++\\) if\\($i ~ /dark/\\) print $i}')",
+      "Bash(ffmpeg -version)",
+      "PowerShell(ffmpeg *)",
+      "Bash(npm install *)",
+      "Bash(./node_modules/ffmpeg-static/ffmpeg.exe -y -i src/videos/skillforceVideo.mp4 -vf \"scale=1280:-2\" -c:v libx264 -crf 28 -preset slow -an -movflags +faststart src/videos/skillforceHero.mp4)",
+      "Bash(git check-ignore *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git commit --amend -m ' *)"
     ]
   }
 }

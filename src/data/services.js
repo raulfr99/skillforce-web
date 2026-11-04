@@ -215,39 +215,50 @@ export const suite = [
   },
 ]
 
-export const riga = {
-  name: 'RIGA',
-  fullName: 'Resguardo Integrado de Gestión Administrativa',
+export const dataia = {
+  name: 'Dataia',
+  badge: '15 años de experiencia',
+  intro:
+    'Colaboramos con empresas de diferentes tamaños y sectores, generando cambios que optimizan su operación con beneficios tangibles y cuantificables.',
   description:
-    'Plataforma segura para la creación y resguardo de expedientes digitales de personas y empresas, con un algoritmo de Inteligencia Artificial para el reconocimiento y autenticación de documentos.',
-  features: [
-    'APIs para conectarse con cualquier plataforma o ERP',
-    'Tablero que indica el nivel de cumplimiento por área',
-    'Semáforo de obligaciones próximas a vencer',
-    'Alertas por correo electrónico y SMS',
-    'Acceso 24/7 desde cualquier dispositivo',
-    'Robot RIGA: recopila, identifica, analiza y clasifica archivos y datos automáticamente',
+    'Evitamos errores que puedan llevarte a multas y recargos en materia fiscal y laboral, asegurando que tu empresa cumpla con todas las regulaciones y mantenga una gestión eficiente y sin contratiempos.',
+  benefits: [
+    'Soluciones a la medida de tu empresa en materia laboral',
+    'Planes de bienestar en el entorno laboral y personal',
+    'Descenso en carga administrativa',
+    'Ahorro en software de nómina',
+    'Reportes personalizados',
   ],
-  modules: [
+  services: [
     {
-      name: 'LEGAL',
+      name: 'Maquila de Nómina',
       description:
-        'Información jurídica del expediente: acta constitutiva, poderes e identificaciones.',
+        'Procesamos la nómina de tu empresa con exactitud y rapidez a través de herramientas digitales de última generación.',
     },
     {
-      name: 'FILE',
+      name: 'Servicios Especializados (REPSE)',
       description:
-        'Expedientes digitales con reconocimiento y autenticación de documentos mediante IA.',
+        'Brindamos servicios especializados de acuerdo a las reformas en materia laboral vigentes.',
     },
     {
-      name: 'CONTROL',
+      name: 'Reclutamiento y selección',
       description:
-        'Flujo y seguimiento de procesos críticos con semáforos de cumplimiento y alertas.',
+        'Desarrollamos estrategias innovadoras y personalizadas en materia de atracción y selección de talento.',
     },
     {
-      name: 'NEWS',
+      name: 'Servicios Profesionales',
       description:
-        'Información periódica: pagos de seguridad social, declaraciones e informes IMSS, Infonavit y UIF.',
+        'Contamos con expertos en diversas áreas de negocios con el fin de desarrollar las mejores alternativas que se apeguen a tus necesidades.',
+    },
+    {
+      name: 'Soluciones de pago',
+      description:
+        'Herramienta versátil y fácil de utilizar para el pago de bonos, viáticos, incentivos y premios.',
+    },
+    {
+      name: 'Otros servicios',
+      description:
+        'Asesoría laboral, fiscal y contable, además de salud y seguros.',
     },
   ],
 }
