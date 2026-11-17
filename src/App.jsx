@@ -7,7 +7,7 @@ import ServiceDetail from './pages/ServiceDetail.jsx'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-200">
+    <div className="min-h-screen bg-white text-ink-800 dark:bg-ink-950 dark:text-steel-100">
       <ScrollToTop />
       <Navbar />
       <Routes>

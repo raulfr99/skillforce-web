@@ -20,7 +20,7 @@ export default function ThemeToggle({ className = '' }) {
       onClick={() => setDark(!dark)}
       aria-label={dark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
       title={dark ? 'Modo claro' : 'Modo oscuro'}
-      className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-slate-600 transition hover:bg-brand-50 hover:text-brand-700 dark:text-white/90 dark:hover:bg-white/15 dark:hover:text-white ${className}`}
+      className={`inline-flex h-10 w-10 items-center justify-center text-steel-600 transition hover:text-accent-600 dark:text-white/85 dark:hover:text-accent-300 ${className}`}
     >
       {dark ? (
         // Sol

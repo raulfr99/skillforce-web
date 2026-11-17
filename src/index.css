@@ -3,9 +3,12 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  /* Tipografía — tres familias con rol estricto */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
-  /* Brand — azul navy del logotipo (color principal) */
+  /* Brand — azul navy del logotipo */
   --color-brand-50:  #eef4fc;
   --color-brand-100: #d6e5f7;
   --color-brand-200: #adc9ef;
@@ -18,7 +21,7 @@
   --color-brand-900: #122b54;
   --color-brand-950: #0a1b38;
 
-  /* Accent — cian brillante del logotipo (highlights y degradados) */
+  /* Accent — cian brillante, señal "live" */
   --color-accent-50:  #ebfaff;
   --color-accent-100: #d0f1fd;
   --color-accent-200: #a4e3fa;
@@ -31,7 +34,7 @@
   --color-accent-900: #184b65;
   --color-accent-950: #0d3045;
 
-  /* Plum — morado del logotipo, SOLO para detalles pequeños */
+  /* Plum — microdetalles */
   --color-plum-50:  #f8f4fb;
   --color-plum-100: #f0e6f6;
   --color-plum-200: #e0ccec;
@@ -44,7 +47,7 @@
   --color-plum-900: #3f1f4e;
   --color-plum-950: #26112f;
 
-  /* Ink — casi-negro azulado para fondos oscuros ricos */
+  /* Ink — fondos oscuros */
   --color-ink-50:  #ebeef5;
   --color-ink-100: #d1d7e5;
   --color-ink-200: #a2acc5;
@@ -57,7 +60,18 @@
   --color-ink-900: #070c1c;
   --color-ink-950: #03060f;
 
-  /* Sand — neutros cálidos para fondos claros con temperatura */
+  /* Steel — gris frío para superficies claras técnicas (reemplaza sand) */
+  --color-steel-50:  #f5f7fa;
+  --color-steel-100: #e9edf3;
+  --color-steel-200: #d7dde8;
+  --color-steel-300: #b8c1d1;
+  --color-steel-400: #8d99b2;
+  --color-steel-500: #67738e;
+  --color-steel-600: #4d586f;
+  --color-steel-700: #39425a;
+  --color-steel-800: #262e42;
+
+  /* Sand — se conserva pero demotado a "aterrizaje cálido" */
   --color-sand-50:  #faf7f2;
   --color-sand-100: #f2ece0;
   --color-sand-200: #e5dcc9;
@@ -73,34 +87,23 @@ html {
 body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
+
+/* Display: títulos y numerales grandes */
+.font-display { font-family: var(--font-display); letter-spacing: -0.02em; }
+.font-mono    { font-family: var(--font-mono); font-feature-settings: "ss01", "ss02", "zero"; }
 
 /* ─── Keyframes ─── */
-
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
 
 @keyframes fade-in {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
-@keyframes float-a {
-  0%, 100% { transform: translate(0, 0); }
-  50%       { transform: translate(20px, -28px); }
-}
-
-@keyframes float-b {
-  0%, 100% { transform: translate(0, 0); }
-  50%       { transform: translate(-18px, 22px); }
-}
-
-@keyframes float-c {
-  0%, 100% { transform: translate(0, 0); }
-  33%       { transform: translate(14px, -18px); }
-  66%       { transform: translate(-14px, 10px); }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes marquee {
@@ -108,70 +111,106 @@ body {
   to   { transform: translateX(-50%); }
 }
 
-/* ─── Animation Utility Classes ─── */
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: .35; transform: scale(.85); }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.8s ease both;
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: .25; }
 }
 
-.animate-float-a {
-  animation: float-a 9s ease-in-out infinite;
+/* ─── Clases utilitarias ─── */
+
+.animate-fade-in  { animation: fade-in 0.8s ease both; }
+.animate-rise     { animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-marquee  { animation: marquee 48s linear infinite; will-change: transform; }
+.animate-pulse-dot { animation: pulse-dot 2.4s ease-in-out infinite; }
+.animate-blink    { animation: blink 1.2s steps(1) infinite; }
+
+.pause-on-hover:hover .animate-marquee { animation-play-state: paused; }
+
+/* ─── Textura: retícula punteada (plano técnico) ─── */
+.grid-dots {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 255, 255, 0.10) 1px,
+    transparent 0
+  );
+  background-size: 16px 16px;
 }
 
-.animate-float-b {
-  animation: float-b 7s ease-in-out infinite;
+.grid-dots-dark {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(10, 27, 56, 0.08) 1px,
+    transparent 0
+  );
+  background-size: 16px 16px;
 }
 
-.animate-float-c {
-  animation: float-c 5.5s ease-in-out infinite;
+/* ─── Barra "live": motivo firma de SkillForce ─── */
+.live-bar {
+  position: relative;
+  padding-left: 0.875rem;
+}
+.live-bar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 2px;
+  background: var(--color-accent-500);
+  box-shadow: 0 0 0 1px rgba(34, 167, 216, 0.25);
 }
 
-.animate-marquee {
-  animation: marquee 36s linear infinite;
-  will-change: transform;
-}
-
-.pause-on-hover:hover .animate-marquee {
-  animation-play-state: paused;
-}
-
-/* ─── Scroll Reveal ─── */
-
+/* ─── Scroll reveal (versión corta: solo una por sección, no en todo) ─── */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
-.reveal-left {
-  opacity: 0;
-  transform: translateX(-30px);
-  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal-right {
-  opacity: 0;
-  transform: translateX(30px);
-  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal.visible,
-.reveal-left.visible,
-.reveal-right.visible {
+.reveal.visible {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: translateY(0);
 }
 
-/* ─── Custom Scrollbar ─── */
+/* ─── Divisor técnico (sustituye líneas tracked all-caps) ─── */
+.rule-tech {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(34, 167, 216, 0.4) 20%,
+    rgba(34, 167, 216, 0.4) 80%,
+    transparent
+  );
+}
 
-::-webkit-scrollbar { width: 5px; }
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #163f82; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #163f82; border-radius: 0; }
 ::-webkit-scrollbar-thumb:hover { background: #22a7d8; }
+
+/* ─── Respeto a reduced-motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-rise,
+  .animate-marquee,
+  .animate-pulse-dot,
+  .animate-blink { animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* ─── Focus visible universal ─── */
+:focus-visible {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 2px;
+}

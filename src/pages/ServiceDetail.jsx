@@ -1,6 +1,5 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { services } from '../data/services.js'
-import logoBlanco from '../assets/skillforce-blanco.png'
 
 export default function ServiceDetail() {
   const { id } = useParams()
@@ -10,91 +9,145 @@ export default function ServiceDetail() {
     return <Navigate to="/" replace />
   }
 
+  const index = services.findIndex((s) => s.id === id)
+  const chapter = String(index + 1).padStart(2, '0')
+
   return (
-    <main>
-      <section className="relative overflow-hidden bg-brand-950">
+    <main className="bg-white dark:bg-ink-950">
+      <section className="relative overflow-hidden bg-ink-950 text-white">
         <img
           src={service.hero}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
+          className="absolute inset-0 h-full w-full object-cover opacity-45 grayscale-[0.4]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-950/70 via-brand-900/60 to-brand-950/95" />
-        <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 pb-16 pt-20 text-center sm:px-6 md:pb-24 md:pt-28 lg:px-8">
-          <img
-            src={logoBlanco}
-            alt="Logotipo SkillForce"
-            className="mb-6 h-20 w-auto drop-shadow-lg sm:h-24"
-          />
-          <nav aria-label="Breadcrumb" className="mb-4 text-xs font-medium text-white/60 sm:text-sm">
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-b from-ink-950/50 via-ink-950/65 to-ink-950"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 grid-dots opacity-[0.08]"
+        />
+
+        <div className="relative mx-auto flex max-w-7xl flex-col items-start px-4 pb-20 pt-24 sm:px-6 md:pb-28 md:pt-32 lg:px-8">
+          <nav
+            aria-label="Breadcrumb"
+            className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-white/60"
+          >
             <Link to="/" className="transition hover:text-white">
               Inicio
             </Link>
-            <span className="mx-2">/</span>
+            <span aria-hidden className="text-white/30">/</span>
             <Link to="/#servicios" className="transition hover:text-white">
               Servicios
             </Link>
-            <span className="mx-2">/</span>
-            <span className="text-white/90">{service.name}</span>
+            <span aria-hidden className="text-white/30">/</span>
+            <span className="text-accent-300">{chapter}</span>
           </nav>
-          <h1 className="max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
+
+          <h1 className="mt-10 max-w-4xl font-display text-4xl font-semibold leading-[1.05] text-white sm:text-5xl md:text-[3.5rem]">
             {service.name}
           </h1>
-          <span className="mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-brand-400 to-accent-400" />
+
+          <p className="live-bar mt-8 max-w-2xl text-base leading-relaxed text-white/75">
+            {service.short}
+          </p>
         </div>
       </section>
 
-      <section className="bg-white py-20 dark:bg-slate-950 md:py-24">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <p className="text-justify leading-relaxed text-slate-700 dark:text-slate-300">
-            {service.intro}
-          </p>
+      <section className="py-20 md:py-24">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-12">
+            <aside className="lg:col-span-4">
+              <div className="sticky top-24">
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-steel-500 dark:text-steel-300">
+                  Capítulo {chapter}
+                </span>
+                <p className="mt-4 text-[13px] leading-relaxed text-steel-600 dark:text-steel-300">
+                  {service.intro}
+                </p>
+              </div>
+            </aside>
 
-          {service.sections.map((section) => (
-            <div key={section.title} className="mt-10">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-                {section.title}
-              </h2>
-              <ul className="mt-4 space-y-2 pl-1">
-                {section.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-slate-700 dark:text-slate-300">
-                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-gradient-to-r from-brand-500 to-accent-500" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
+            <div className="lg:col-span-8">
+              {service.sections.map((section, i) => (
+                <div
+                  key={section.title}
+                  className={i === 0 ? '' : 'mt-14 border-t border-steel-200 pt-14 dark:border-ink-700'}
+                >
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent-700 dark:text-accent-300 tabular-nums">
+                      {chapter}.{String(i + 1).padStart(2, '0')}
+                    </span>
+                    <h2 className="font-display text-2xl font-semibold leading-tight text-ink-900 dark:text-white sm:text-[1.75rem]">
+                      {section.title}
+                    </h2>
+                  </div>
+
+                  <ul className="mt-6 grid grid-cols-1 gap-0 border-t border-steel-200 dark:border-ink-700">
+                    {section.items.map((item, k) => (
+                      <li
+                        key={item}
+                        className="group flex items-start gap-4 border-b border-steel-200 py-4 text-[15px] leading-relaxed text-ink-800 transition duration-300 hover:bg-steel-50 dark:border-ink-700 dark:text-white/85 dark:hover:bg-ink-900"
+                      >
+                        <span className="w-10 pt-0.5 font-mono text-[10px] text-steel-400 tabular-nums dark:text-steel-300">
+                          {String(k + 1).padStart(2, '0')}
+                        </span>
+                        <span className="flex-1 pr-2">{item}</span>
+                        <span
+                          aria-hidden
+                          className="h-px w-5 self-center bg-steel-200 transition duration-300 group-hover:w-8 group-hover:bg-accent-400 dark:bg-ink-600"
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+
+              <div className="mt-16 flex flex-col items-start justify-between gap-5 border border-ink-900 bg-ink-950 p-7 text-white sm:flex-row sm:items-center dark:border-accent-400/40">
+                <div>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent-300">
+                    Siguiente paso
+                  </span>
+                  <p className="mt-2 font-display text-lg font-semibold">
+                    ¿Quieres conocer más sobre {service.name}?
+                  </p>
+                </div>
+                <Link
+                  to="/#contacto"
+                  className="inline-flex items-center gap-2 border border-accent-400 bg-accent-500 px-5 py-2.5 font-mono text-[11px] font-semibold uppercase tracking-[0.15em] text-ink-950 transition hover:bg-accent-400"
+                >
+                  Hablar con nosotros
+                  <span aria-hidden className="font-mono text-accent-900">/</span>
+                </Link>
+              </div>
+
+              <nav className="mt-14">
+                <h3 className="font-mono text-[10px] uppercase tracking-[0.22em] text-steel-500 dark:text-steel-300">
+                  Otros módulos
+                </h3>
+                <ul className="mt-5 grid grid-cols-1 gap-px bg-steel-200 sm:grid-cols-3 dark:bg-ink-700">
+                  {services
+                    .filter((s) => s.id !== service.id)
+                    .map((s, k) => (
+                      <li key={s.id}>
+                        <Link
+                          to={`/servicios/${s.id}`}
+                          className="group flex h-full flex-col justify-between gap-4 bg-white p-5 transition duration-300 hover:bg-steel-50 dark:bg-ink-950 dark:hover:bg-ink-900"
+                        >
+                          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-steel-500 tabular-nums dark:text-steel-300">
+                            0{k + 1}
+                          </span>
+                          <span className="font-display text-sm font-semibold text-ink-900 dark:text-white">
+                            {s.name}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                </ul>
+              </nav>
             </div>
-          ))}
-
-          <div className="mt-14 flex flex-col items-center gap-4 rounded-2xl bg-brand-50 p-8 text-center dark:bg-brand-950/60 dark:ring-1 dark:ring-brand-800 sm:flex-row sm:justify-between sm:text-left">
-            <p className="font-medium text-brand-900 dark:text-brand-100">
-              ¿Quieres conocer más sobre {service.name}?
-            </p>
-            <Link
-              to="/#contacto"
-              className="rounded-full bg-gradient-to-r from-brand-600 to-accent-600 px-6 py-2.5 text-sm font-semibold text-white transition hover:from-brand-500 hover:to-accent-500"
-            >
-              Contáctanos
-            </Link>
           </div>
-
-          <nav className="mt-14 border-t border-slate-200 pt-8 dark:border-slate-800">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-              Otros servicios
-            </h3>
-            <div className="mt-4 flex flex-wrap gap-3">
-              {services
-                .filter((s) => s.id !== service.id)
-                .map((s) => (
-                  <Link
-                    key={s.id}
-                    to={`/servicios/${s.id}`}
-                    className="rounded-full border border-brand-200 px-4 py-2 text-sm font-medium text-brand-700 transition hover:bg-brand-50 dark:border-brand-800 dark:text-brand-300 dark:hover:bg-brand-950"
-                  >
-                    {s.name}
-                  </Link>
-                ))}
-            </div>
-          </nav>
         </div>
       </section>
     </main>

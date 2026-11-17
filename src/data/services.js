@@ -1,3 +1,16 @@
+// Logos de clientes. Vite resuelve cada URL en build time.
+const clientLogoModules = import.meta.glob(
+  '../assets/logosClientes/*.{png,jpg,jpeg,svg,webp}',
+  { eager: true, import: 'default' },
+)
+
+const logoByFile = Object.fromEntries(
+  Object.entries(clientLogoModules).map(([path, url]) => {
+    const file = path.split('/').pop()
+    return [file, url]
+  }),
+)
+
 export const services = [
   {
     id: 'talento',
@@ -91,7 +104,7 @@ export const services = [
     hero:
       'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1600&q=80',
     intro:
-      'Plataforma flexible para administrar las relaciones laborales, con módulos que cubren capacitación, cumplimiento normativo, autoservicio del empleado y gestión de viáticos.',
+      'Plataforma flexible para administrar las relaciones laborales, con módulos que cubren capacitación, cumplimiento normativo, gestión de vacaciones y control de viáticos.',
     sections: [
       {
         title: 'SkillForce Educación Corporativa',
@@ -108,11 +121,12 @@ export const services = [
         ],
       },
       {
-        title: 'SkillForce Comedor / Kiosco',
+        title: 'SkillForce Vacaciones',
         items: [
-          'Consulta y edición de datos del empleado',
-          'Descarga de recibos de nómina',
-          'Gestión de saldo de vacaciones',
+          'Control de saldo de días disponibles por colaborador',
+          'Solicitud y autorización de vacaciones desde la app',
+          'Cálculo automático de prima vacacional conforme a la LFT',
+          'Reportes de días gozados, pendientes y acumulados',
         ],
       },
       {
@@ -153,8 +167,7 @@ export const services = [
   },
 ]
 
-// Bento layout: 4 cols × 3 rows en desktop. Cada tile declara su `span` y `variant`
-// ('image' = foto con overlay | 'solid' = bloque morado liso con texto grande).
+// Bento 4×3 — se mantiene el layout pero refinamos tags y contenido.
 export const suite = [
   {
     name: 'Talento',
@@ -180,7 +193,7 @@ export const suite = [
     tagline: 'Timbrado ilimitado',
   },
   {
-    name: 'Bolsa de trabajo',
+    name: 'SkillForce Bio',
     to: '/servicios/talento',
     variant: 'image',
     span: 'md:col-span-2 md:row-span-1',
@@ -202,7 +215,7 @@ export const suite = [
     to: '/servicios/servicios-complementarios',
     variant: 'solid',
     span: 'md:col-span-2 md:row-span-1',
-    tagline: 'Capacitación · NOM 035 · Comedor · Viáticos',
+    tagline: 'Capacitación · NOM 035 · Vacaciones · Viáticos',
   },
   {
     name: 'Facturación',
@@ -215,8 +228,9 @@ export const suite = [
   },
 ]
 
-export const dataia = {
-  name: 'Dataia',
+// Bloque "Quiénes somos" — contenido corporativo SkillForce.
+export const about = {
+  name: 'SkillForce',
   badge: '15 años de experiencia',
   intro:
     'Colaboramos con empresas de diferentes tamaños y sectores, generando cambios que optimizan su operación con beneficios tangibles y cuantificables.',
@@ -263,19 +277,30 @@ export const dataia = {
   ],
 }
 
+// Clientes — lista real de 19 logos en src/assets/logosClientes.
+// theme: 'dark' = el logo es blanco/muy claro, necesita fondo oscuro para verse.
+// theme: 'light' = logo oscuro o a color, va sobre fondo claro.
 export const clients = [
-  { name: "Carl's Jr",        abbr: 'CJ', sector: 'Restaurantes' },
-  { name: 'CG Consultores',   abbr: 'CG', sector: 'Consultoría' },
-  { name: 'Be People',        abbr: 'BP', sector: 'Recursos Humanos' },
-  { name: 'EXUS',             abbr: 'EX', sector: 'Tecnología' },
-  { name: 'Magnitalent',      abbr: 'MG', sector: 'Talento' },
-  { name: 'Maycky BTL',       abbr: 'MB', sector: 'Marketing' },
-  { name: 'Sanatorio Toluca', abbr: 'ST', sector: 'Salud' },
-  { name: 'Sports Clinic',    abbr: 'SC', sector: 'Salud' },
-  { name: 'Sportway',         abbr: 'SW', sector: 'Deporte' },
-  { name: 'Zquadra',          abbr: 'ZQ', sector: 'Consultoría' },
-  { name: 'Biatatus',         abbr: 'BT', sector: 'Tecnología' },
-]
+  { name: 'AFOSO',         sector: 'Restaurantes',       theme: 'dark',  file: 'LOGO-AFOSO-SOMBRA-1024x625.png' },
+  { name: 'Batiatus',      sector: 'Seguridad privada',  theme: 'light', file: 'Batiatus-removebg-preview.png' },
+  { name: 'BTech',         sector: 'Tecnología',         theme: 'dark',  file: 'btech 2.png' },
+  { name: "Carl's Jr",     sector: 'Restaurantes',       theme: 'light', file: 'Carls.png' },
+  { name: 'Evolve RH',     sector: 'Recursos humanos',   theme: 'dark',  file: 'Evolve RH.png' },
+  { name: 'EXUS',          sector: 'Limpieza industrial',theme: 'light', file: 'EXUS.png' },
+  { name: 'GGC Consultores', sector: 'Consultoría',      theme: 'light', file: 'GGC-removebg-preview.png' },
+  { name: 'Grupo Medios',  sector: 'Medios',             theme: 'light', file: 'GPO MEDIOS.png' },
+  { name: 'Habitat',       sector: 'Inmobiliaria',       theme: 'dark',  file: 'Habitat-removebg-preview.png' },
+  { name: 'Humanly',       sector: 'Recursos humanos',   theme: 'light', file: 'Logo Humanly.png' },
+  { name: 'IDC',           sector: 'Editorial fiscal',   theme: 'light', file: 'IDC.png' },
+  { name: 'JobFit',        sector: 'Talento',            theme: 'light', file: 'Jobfit.png' },
+  { name: 'La Mansión',    sector: 'Restaurantes',       theme: 'light', file: 'La Mansion.png' },
+  { name: 'Magnitalent',   sector: 'Talento',            theme: 'light', file: 'Logo MT tag negro.png' },
+  { name: 'Maycky BTL',    sector: 'Marketing',          theme: 'light', file: 'Maycky Btl.png' },
+  { name: 'México (MTCH)', sector: 'Medios',             theme: 'dark',  file: 'MTCH.jpg' },
+  { name: 'Club Sportway', sector: 'Deporte',            theme: 'light', file: 'Sportway.png' },
+  { name: 'Tredy',         sector: 'Recursos humanos',   theme: 'light', file: 'Tredy.png' },
+  { name: 'Zquadra',       sector: 'Seguridad privada',  theme: 'light', file: 'Zquadra.png' },
+].map((c) => ({ ...c, logo: logoByFile[c.file] }))
 
 export const company = {
   name: 'SkillForce',
